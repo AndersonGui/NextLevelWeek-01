@@ -49,7 +49,7 @@ class PointController {
                 image_url: `http://192.168.0.105:4200/uploads/${point.image}`
             };
 
-            return response.json({ serializedPoint, items });
+            return response.json({ point: serializedPoint, items });
         } catch (error) {
             console.log(error);
             return response.json({ error });
@@ -61,8 +61,6 @@ class PointController {
             const { name, email, whatsapp, latitude, longitude, city, uf, items } = request.body;
 
             const trx = await knex.transaction();
-
-            console.log(request.file);
 
             const point = { image: request.file.filename, name, email, whatsapp, latitude, longitude, city, uf };
 

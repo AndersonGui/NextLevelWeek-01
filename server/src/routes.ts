@@ -26,8 +26,8 @@ routes.post("/points", upload.single('image'), celebrate({
         city: Joi.string().required(),
         uf: Joi.string().required().max(2),
         items: Joi.string().required()
-    }, { abortEarly: false })
-}), pointController.create);
+    })
+}, { abortEarly: false }), pointController.create);
 
 
 export default routes;
